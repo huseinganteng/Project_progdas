@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FROM Input</h1>
+
+        <label for="Kode_Produk">Kode Produk:</label>
+        <input 
+        type="text" 
+        id="Kode_Produk" 
+        name="id_Kode_Produk"
+        placeholder="MD-01" 
+        readonly 
+        />
+
+        <form id="productForm">
+            <div class="form-group">
+                <label for="nama_produk">Nama Produk</label>
+                <input type="text" name="nama_produk" 
+                id="nama_produk" 
+                placeholder="Nama Produk" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Kategori</label>
+                <select id="category" required>
+                    <option value="" disabled>Pilih Kategori </option>
+                    <option value="Makanan">Makanan</option>
+                    <option value="Minuman">Minuman</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="productImage">URL Gambar</label>
+                <input type="text" id="productImage" 
+                placeholder="URL Gambar" >
+            </div>
+
+            <div class="form-group">
+                <label for="price">Harga</label>
+                <input type="number" id="price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="unit">Satuan</label>
+                <select id="unit" required>
+                    <option value="" disabled>Pilih Satuan </option>
+                    <option value="Ayam KFC">Ayam KFC</option>
+                    <option value="Moca float">Moca float</option>
+                    <option value="Kopi">Kopi</option>
+                    <option value="Cocacola">Cocacola</option>
+                    <option value="Fanta">Fanta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stok Awal</label>
+                <input type="number" id="stock" required>
+            </div>
+
+            <button type="submit">Tambah Produk</button>
+        </form>
+        
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Kode Produk</th>
+                    <th>Nama</th>
+                    <th>Kategori</th>
+                    <th>Gambar</th>
+                    <th>Harga</th>
+                    <th>Satuan</th>
+                    <th>Stok</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- Modal untuk Edit Produk -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Edit Produk</h2>
+            <form id="editProductForm">
+                <div class="form-group">
+                    <label for="editProductName">Nama Produk</label>
+                    <input type="text" id="editProductName">
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Kategori</label>
+                    <select id="editCategory">
+                        <option value="Makanan">Makanan</option>
+                        <option value="Minuman">Minuman</option>
+                        <option value="Cemilan">Cemilan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editProductImage">URL Gambar</label>
+                    <input type="text" id="editProductImage">
+                </div>
+                <div class="form-group">
+                    <label for="editPrice">Harga</label>
+                    <input type="number" id="editPrice">
+                </div>
+                <div class="form-group">
+                    <label for="editUnit">Satuan</label>
+                    <select id="editUnit">
+                        <option value="Porsi">Porsi</option>
+                        <option value="Cup">Cup</option>
+                        <option value="Botol">Botol</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editStock">Stok</label>
+                    <input type="number" id="editStock">
+                </div>
+                <button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal untuk Konfirmasi Hapus -->
+    <div id="deleteConfirmModal" class="modal">
+        <div class="modal-content">
+            <h2>Apakah Anda yakin ingin menghapus produk ini?</h2>
+            <button id="confirmDelete" class="delete-btn">Ya, Hapus</button>
+            <button id="cancelDelete" class="cancel-btn">Batal</button>
+        </div>
+    </div>
+
+    <script src="funcition.js"></script>
+</body>
+</html>
